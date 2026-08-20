@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Lina Aviation | elite flight training & aircraft</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: modern feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --pink-900: #3d0f2e;
+      --pink-800: #5c1a44;
+      --pink-700: #8b2f6b;
+      --pink-600: #c84b8a;
+      --pink-500: #e563a2;
+      --pink-400: #f28bbc;
+      --pink-300: #fbc2dd;
+      --pink-200: #fde3f0;
+      --pink-100: #fff0f7;
+      --accent-pink: #ff6eb4;
+      --accent-gold: #ffd166;
+      --white: #ffffff;
+      --shadow-lg: 0 25px 50px -12px rgba(80, 20, 50, 0.3);
+      --shadow-card: 0 15px 30px -8px rgba(100, 30, 70, 0.15);
+      --border-radius: 28px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--pink-100);
+      color: #2d1b2e;
+      line-height: 1.5;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(255, 110, 180, 0.15);
+      color: var(--pink-700);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 110, 180, 0.3);
+    }
+
+    /* ============ NAVBAR ============ */
+    .navbar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 94%;
+      max-width: 1300px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      border-radius: 60px;
+      background: rgba(80, 20, 55, 0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 30px rgba(50, 10, 35, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: white;
+    }
+    .logo i {
+      color: var(--accent-gold);
+      font-size: 2rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #ffe0f0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+    .nav-cta {
+      background: var(--accent-gold);
+      color: #3d0f2e !important;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 700;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-cta:hover {
+      background: #ffe28a;
+      transform: scale(1.03);
+    }
+
+    /* ============ HERO with background aircraft image ============ */
+    .hero {
+      min-height: 100vh;
+      background: 
+        linear-gradient(135deg, rgba(80, 20, 55, 0.75) 0%, rgba(180, 50, 100, 0.6) 100%),
+        url('IMG_8395.JPG') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 110px;
+      padding-bottom: 60px;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255,110,180,0.3), transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .hero h1 span {
+      color: var(--accent-gold);
+      display: inline-block;
+      border-bottom: 4px solid rgba(255,209,102,0.6);
+      padding-bottom: 5px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #ffd9ec;
+      max-width: 560px;
+      margin-bottom: 35px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .btn-group {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent-gold);
+      color: #3d0f2e;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.4);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #ffe28a;
+      transform: translateY(-3px);
+      box-shadow: 0 22px 40px -12px rgba(255,209,102,0.7);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: white;
+      color: var(--pink-800);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 55px;
+    }
+    .stat-item h3 {
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 800;
+    }
+    .stat-item p {
+      color: #f7c8e0;
+      font-size: 0.9rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    /* ============ TRAINING SECTION ============ */
+    .section-padding {
+      padding: 100px 0;
+    }
+    .section-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--pink-900);
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      color: #6b4a5e;
+      max-width: 650px;
+      margin-bottom: 48px;
+      font-size: 1.1rem;
+    }
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .training-card {
+      background: white;
+      padding: 36px 28px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+      border: 1px solid #fce4f0;
+      cursor: default;
+    }
+    .training-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 45px -15px rgba(200, 75, 138, 0.25);
+      border-color: var(--pink-400);
+    }
+    .training-card i {
+      font-size: 3rem;
+      color: var(--pink-600);
+      margin-bottom: 24px;
+    }
+    .training-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #4a1a35;
+    }
+    .training-card p {
+      color: #5d4a56;
+    }
+
+    /* ============ AIRCRAFT SECTION ============ */
+    .aircraft-section {
+      background: linear-gradient(145deg, #4a1230 0%, #6b1f47 100%);
+      color: white;
+      border-radius: 50px;
+      margin: 30px auto;
+      max-width: 1400px;
+      padding: 70px 40px;
+    }
+    .aircraft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      margin-top: 50px;
+    }
+    .aircraft-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 32px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .aircraft-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: scale(1.02);
+    }
+    .aircraft-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .aircraft-img .badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--accent-gold);
+      color: #3d0f2e;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+    .aircraft-info {
+      padding: 26px;
+    }
+    .aircraft-info h3 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .aircraft-info .specs {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+      color: #fbc2dd;
+    }
+    .aircraft-info .specs i {
+      margin-right: 6px;
+      color: var(--accent-gold);
+    }
+
+    /* ============ WHY LINA ============ */
+    .why-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .why-text {
+      flex: 1 1 300px;
+    }
+    .why-image {
+  flex: 1 1 300px;
+  background: url('IMG_8387 2.JPG') no-repeat center/cover;
+  min-height: 400px;
+  border-radius: 40px;
+  box-shadow: 0 40px 60px -20px rgba(100, 30, 70, 0.4);
+}
+
+    .badge-list {
+      list-style: none;
+      margin-top: 25px;
+    }
+    .badge-list li {
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: #5a3b4e;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge-list i {
+      color: var(--pink-600);
+      font-size: 1.5rem;
+    }
+
+    /* ============ CTA BAND ============ */
+    .cta-band {
+      background: var(--accent-gold);
+      border-radius: 60px;
+      padding: 60px 50px;
+      text-align: center;
+      margin: 60px auto;
+      max-width: 1200px;
+      box-shadow: 0 35px 50px -20px rgba(80, 20, 55, 0.5);
+    }
+    .cta-band h2 {
+      font-size: 3rem;
+      color: #3d0f2e;
+    }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      background: #2e0b21;
+      color: #e6b3d0;
+      padding: 50px 0 30px;
+      margin-top: 80px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    .footer h4 {
+      color: white;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+    .footer a {
+      color: #e6b3d0;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .footer a:hover {
+      color: var(--accent-gold);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .navbar {
+        width: 96%;
+        padding: 12px 20px;
+      }
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <i class="fas fa-plane"></i>
+      <span>LINA <span style="color:var(--accent-gold)">AVIATION</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#training">Training</a>
+      <a href="#aircraft">Aircraft</a>
+      <a href="#why">Why Lina</a>
+      <a href="#contact" class="nav-cta">Apply now</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="section-badge" style="background:rgba(255,110,180,0.2); color:#ffb6d9; border-color:rgba(255,255,255,0.3);">✈️ Elite Pilot Academy</div>
+        <h1>Fly beyond<br><span>your limits</span></h1>
+        <p>Lina Aviation provides world-class flight training and a modern fleet of training aircraft. From zero experience to airline-ready, your journey starts here.</p>
+        <div class="btn-group">
+          <a href="#training" class="btn-primary"><i class="fas fa-graduation-cap"></i> Explore programs</a>
+          <a href="#aircraft" class="btn-outline"><i class="fas fa-plane-departure"></i> View fleet</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>25+</h3>
+            <p>Years of excellence</p>
+          </div>
+          <div class="stat-item">
+            <h3>40+</h3>
+            <p>Training aircraft</p>
+          </div>
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p>Pass rate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING SECTION -->
+  <section id="training" class="section-padding">
+    <div class="container">
+      <span class="section-badge">Training programs</span>
+      <h2 class="section-title">Your path to the cockpit</h2>
+      <p class="section-sub">Comprehensive courses designed for every phase of your aviation career, under EASA & FAA compliant syllabi.</p>
+      <div class="training-grid">
+        <div class="training-card">
+          <i class="fas fa-user-graduate"></i>
+          <h3>Private Pilot (PPL)</h3>
+          <p>Master the fundamentals of flight. 45+ flight hours, ground school, and unlimited simulator access.</p>
+        </div>
+        <div class="training-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Instrument Rating (IR)</h3>
+          <p>Fly in all weather conditions with advanced instrument navigation and procedural training.</p>
+        </div>
+        <div class="training-card">
+          <i class="fas fa-users"></i>
+          <h3>Commercial Pilot (CPL)</h3>
+          <p>Build professionalism and complex aircraft handling. Multi-engine and ATPL theory included.</p>
+        </div>
+        <div class="training-card">
+          <i class="fas fa-certificate"></i>
+          <h3>Flight Instructor (FI)</h3>
+          <p>Become a certified instructor and share your passion. 120+ hours and teaching practicum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIRCRAFT FLEET SECTION -->
+  <section id="aircraft" style="padding: 60px 0;">
+    <div class="container" style="max-width: 1400px;">
+      <div class="aircraft-section">
+        <div style="text-align:center;">
+          <span class="section-badge" style="background:rgba(255,110,180,0.25); color:#ffb6d9;">✈️ The Lina Fleet</span>
+          <h2 style="color:white; font-size:3rem;">Modern training aircraft</h2>
+          <p style="color:#ffd9ec; max-width:600px; margin:15px auto;">Advanced glass cockpit, reliable and maintained to the highest standards.</p>
+        </div>
+        <div class="aircraft-grid">
+          <div class="aircraft-card">
+            <div class="aircraft-img" style="background-image: url('IMG_8393.JPG');">
+              <span class="badge">Primary Trainer</span>
+            </div>
+            <div class="aircraft-info">
+              <h3>Cessna 172 SP</h3>
+              <div class="specs">
+                <span><i class="fas fa-tachometer-alt"></i> 122 kts</span>
+                <span><i class="fas fa-chair"></i> 4 seats</span>
+                <span><i class="fas fa-gas-pump"></i> 52 gal</span>
+              </div>
+              <p>Legendary stability for initial training.</p>
+            </div>
+          </div>
+          <div class="aircraft-card">
+            <div class="aircraft-img" style="background-image: url('IMG_8395.JPG');">
+              <span class="badge">Complex trainer</span>
+            </div>
+            <div class="aircraft-info">
+              <h3>Piper Archer DX</h3>
+              <div class="specs">
+                <span><i class="fas fa-tachometer-alt"></i> 128 kts</span>
+                <span><i class="fas fa-chair"></i> 4 seats</span>
+                <span><i class="fas fa-microchip"></i> G1000 NXi</span>
+              </div>
+              <p>Diesel-powered advanced trainer with glass cockpit.</p>
+            </div>
+          </div>
+          <div class="aircraft-card">
+            <div class="aircraft-img" style="background-image: url('IMG_8391.JPG');">
+              <span class="badge">Multi-engine</span>
+            </div>
+            <div class="aircraft-info">
+              <h3>Diamond DA42</h3>
+              <div class="specs">
+                <span><i class="fas fa-tachometer-alt"></i> 197 kts</span>
+                <span><i class="fas fa-engine"></i> Twin Austro</span>
+                <span><i class="fas fa-shield-alt"></i> FIKI</span>
+              </div>
+              <p>Modern multi-engine platform for CPL/IR.</p>
+            </div>
+          </div>
+          <div class="aircraft-card">
+            <div class="aircraft-img" style="background-image: url('IMG_8392.JPG');">
+              <span class="badge">Advanced</span>
+            </div>
+            <div class="aircraft-info">
+              <h3>Cirrus SR20</h3>
+              <div class="specs">
+                <span><i class="fas fa-tachometer-alt"></i> 155 kts</span>
+                <span><i class="fas fa-parachute-box"></i> CAPS</span>
+                <span><i class="fas fa-chair"></i> 5 seats</span>
+              </div>
+              <p>Composite airframe with ballistic parachute.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY LINA + ABOUT -->
+  <section id="why" class="section-padding">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text">
+          <span class="section-badge">Why Lina Aviation</span>
+          <h2 class="section-title">Trusted by future captains</h2>
+          <ul class="badge-list">
+            <li><i class="fas fa-check-circle"></i> State-of-the-art flight simulators (Level D)</li>
+            <li><i class="fas fa-check-circle"></i> 1:1 mentorship with airline pilots</li>
+            <li><i class="fas fa-check-circle"></i> Dedicated aviation English & CRM</li>
+            <li><i class="fas fa-check-circle"></i> Financing options & scholarships</li>
+            <li><i class="fas fa-check-circle"></i> EASA & FAA approved training organisation</li>
+          </ul>
+        </div>
+        <div class="why-image"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="container">
+    <div class="cta-band">
+      <h2>Ready for takeoff?</h2>
+      <p style="font-size:1.3rem; margin:10px 0 30px; color:#3d0f2e;">Join our next intake – limited slots available.</p>
+      <a href="#contact" class="btn-primary" style="background:#3d0f2e; color:white; box-shadow:none;"><i class="fas fa-paper-plane"></i> Start application</a>
+    </div>
+  </div>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="font-size:1.5rem; margin-bottom:10px;">
+            <i class="fas fa-plane"></i> LINA AVIATION
+          </div>
+          <p style="color:#d69fc0;">Elevating the art of flight training since 1999.</p>
+          <p><i class="fas fa-map-marker-alt"></i> 88 Skyway Ave, Aviation Park</p>
+        </div>
+        <div>
+          <h4>Training</h4>
+          <a href="#">PPL Course</a>
+          <a href="#">CPL ME/IR</a>
+          <a href="#">Flight Instructor</a>
+          <a href="#">Simulator</a>
+        </div>
+        <div>
+          <h4>Fleet</h4>
+          <a href="#">Cessna 172</a>
+          <a href="#">Piper Archer</a>
+          <a href="#">Diamond DA42</a>
+          <a href="#">Cirrus SR20</a>
+        </div>
+        <div>
+          <h4>Contact & Social</h4>
+          <a href="mailto:fly@linaaviation.com"><i class="fas fa-envelope"></i> fly@linaaviation.com</a>
+          <a href="tel:+123456789"><i class="fas fa-phone"></i> +1 (555) 123-4567</a>
+          <a href="https://www.instagram.com/lina.ameenn?igsi=MXVmbDhvMGt5ODNvNw==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> @lina.ameenn</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid #5c1a44; margin-top:40px; padding-top:25px; display:flex; justify-content:space-between; flex-wrap:wrap;">
+        <p>© 2025 Lina Aviation. All rights reserved.</p>
+        <p style="color:var(--accent-gold); font-weight:600;"><i class="fas fa-shield-alt"></i> Safety above all</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.style.background = 'rgba(60, 15, 40, 0.95)';
+          navbar.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.5)';
+        } else {
+          navbar.style.background = 'rgba(80, 20, 55, 0.75)';
+          navbar.style.boxShadow = '0 12px 30px rgba(50, 10, 35, 0.35)';
+        }
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      const statNumbers = document.querySelectorAll('.stat-item h3');
+      const animateNumbers = () => {
+        statNumbers.forEach(stat => {
+          const text = stat.innerText;
+          const value = parseInt(text.replace(/[^0-9]/g, ''));
+          if (!isNaN(value)) {
+            let start = 0;
+            const stepTime = 10;
+            const increment = value / (700 / stepTime);
+            const timer = setInterval(() => {
+              start += increment;
+              if (start >= value) {
+                stat.innerText = value + (text.includes('%') ? '%' : '+');
+                clearInterval(timer);
+              } else {
+                stat.innerText = Math.floor(start) + (text.includes('%') ? '%' : '+');
+              }
+            }, stepTime);
+          }
+        });
+      };
+
+      const statsSection = document.querySelector('.hero-stats');
+      if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateNumbers();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.5 });
+        observer.observe(statsSection);
+      }
+
+      console.log('%c🌸 LINA AVIATION — pink skies ahead', 'font-size:16px; color:#ff6eb4; font-weight:bold;');
+    })();
+  </script>
+</body>
+</html>
